@@ -1,11 +1,20 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import { useIsFocused } from "@react-navigation/core";
+import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Constants from 'expo-constants';
+import { COLORS } from '../constants';
 
-const FocusedStatusBar = (props) => {
-  const isFocused = useIsFocused();
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.primary,
+    flexDirection: 'row',
+    paddingTop: Constants.statusBarHeight,
+  },
+});
 
-  return isFocused ? <StatusBar hidden={false} animated={true} {...props} /> : null;
-};
 
-export default FocusedStatusBar;
+function AppBar() {
+  return (
+    <View style={styles.container} />
+  );
+}
+
+export default AppBar

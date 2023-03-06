@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import Main from './screens/Main'
 import Details from './screens/Details'
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <NavigationContainer theme={theme}>
+      <StatusBar style="light" />
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
         <Stack.Screen name='Home' component={Main} />
         <Stack.Screen name='Details' component={Details} />
@@ -34,13 +36,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
